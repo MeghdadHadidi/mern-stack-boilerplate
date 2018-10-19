@@ -1,0 +1,32 @@
+{
+    "name": "new-herour",
+    "version": "1.0.0",
+    "description": "New Herour - Application Framework for Midrp Platform",
+    "main": "server.js",
+    "scripts": {
+        "babel-node": "babel-node --presets=latest",
+        "start": "node server.js",
+        "server": "nodemon --exec npm run babel-node -- server.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Meghdad Hadidi",
+    "license": "ISC",
+    "dependencies": {
+        "body-parser": "^1.18.3",
+        "chalk": "^2.4.1",
+        "concurrently": "^4.0.1",
+        "express": "^4.16.4",
+        "mongoose": "^5.3.4"
+    },
+    "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-core": "^6.26.3",
+        "babel-preset-latest": "^6.24.1",
+        "nodemon": "^1.18.4"
+    },
+    "babel": {
+        "presets": [
+            "latest"
+        ]
+    }
+}
