@@ -58,6 +58,10 @@ const plugins = [
     new webpack.HotModuleReplacementPlugin()
 ]
 
+// @TODO:
+// - Configure HMR
+// - Optimization (Uglify, ...)
+
 module.exports = {
     entry,
     devServer: {
