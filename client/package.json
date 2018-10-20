@@ -4,7 +4,8 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "start": "webpack-dev-server --config ./config/webpack.config.js --mode development --open --hotOnly",
+        "build": "rimraf dist && webpack --config ./config/webpack.config.js --mode production"
     },
     "dependencies": {
         "react": "^16.5.2",
@@ -16,11 +17,12 @@
         "redux-thunk": "^2.3.0"
     },
     "devDependencies": {
+        "@babel/core": "^7.1.2",
+        "@babel/preset-env": "^7.1.0",
+        "@babel/preset-react": "^7.0.0",
         "autoprefixer": "^9.2.1",
         "babel-cli": "^6.26.0",
-        "babel-core": "^6.26.3",
         "babel-loader": "^8.0.4",
-        "babel-preset-env": "^1.7.0",
         "babel-preset-react": "^6.24.1",
         "css-loader": "^1.0.0",
         "file-loader": "^2.0.0",
