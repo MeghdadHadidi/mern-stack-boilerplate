@@ -12,6 +12,34 @@ import routes from "./routes"
 
 const app = express()
 
+// Webpack
+import webpack from 'webpack'
+import webpackConfig from './client/config/webpack.config'
+import WebpackHotMiddleware from 'webpack-hot-middleware'
+import WebpackDevMiddleware from 'webpack-dev-middleware'
+
+const compiler = webpack(webpackConfig)
+
+app.use(
+    WebpackDevMiddleware(compiler, {
+      hot: true,
+      filename: "bundle.js",
+      // publicPath: "/assets/",
+      stats: {
+        colors: true
+      },
+      historyApiFallback: true
+    })
+  );
+  
+  app.use(
+    WebpackHotMiddleware(compiler, {
+      log: console.log,
+      path: "/__webpack_hmr",
+      heartbeat: 10 * 1000
+    })
+  );
+
 // Body Parser
 app.use(bodyParser.json())
 

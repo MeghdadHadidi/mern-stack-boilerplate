@@ -10,18 +10,30 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const path = require("path")
 
+const here = p => path.join(__dirname, p)
+
 /*******************************
  * Entry
  ******************************/
 const entry = {
-    main: ["./src/index.js"]
+    main: [
+        "webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000",
+        "./src/index.js"
+    ]
 }
 
+
+/*******************************
+ * Output
+ ******************************/
 const output = {
-    path: path.resolve(__dirname, "../dist"),
+    path: here("../dist"),
     filename: "bundle.js"
 }
 
+/*******************************
+ * Module
+ ******************************/
 const modules = {
     rules: [
         {
@@ -47,6 +59,9 @@ const modules = {
     ]
 }
 
+/*******************************
+ * Plugins
+ ******************************/
 const plugins = [
     new MiniCssExtractPlugin({
         filename: devMode ? "[name].css" : "[name].[hash].css",
@@ -58,10 +73,16 @@ const plugins = [
     new webpack.HotModuleReplacementPlugin()
 ]
 
+/*******************************
+ * Optimization
+ ******************************/
 // @TODO:
 // - Configure HMR
 // - Optimization (Uglify, ...)
 
+/*******************************
+ * Exporting configuration
+ ******************************/
 module.exports = {
     entry,
     devServer: {

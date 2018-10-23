@@ -1,16 +1,15 @@
 {
-    "name": "new-herour",
+    "name": "mern-stack-boilerplate",
     "version": "1.0.0",
-    "description": "New Herour - Application Framework for Midrp Platform",
+    "description": "MERN stack boilerplate",
     "main": "server.js",
     "scripts": {
-        "babel-node": "babel-node --presets=latest",
+        "babel-node": "babel ./server.js",
         "start": "node server.js",
-        "server": "nodemon --exec npm run babel-node -- server.js",
+        "server": "nodemon --exec \"npm run babel-node\"",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "author": "Meghdad Hadidi",
-    "license": "ISC",
     "dependencies": {
         "body-parser": "^1.18.3",
         "chalk": "^2.4.1",
@@ -19,14 +18,15 @@
         "mongoose": "^5.3.4"
     },
     "devDependencies": {
-        "babel-cli": "^6.26.0",
-        "babel-core": "^6.26.3",
-        "babel-preset-latest": "^6.24.1",
-        "nodemon": "^1.18.4"
-    },
-    "babel": {
-        "presets": [
-            "latest"
-        ]
+        "@babel/cli": "^7.1.2",
+        "@babel/core": "^7.1.2",
+        "@babel/polyfill": "^7.0.0",
+        "@babel/preset-env": "^7.1.0",
+        "@babel/preset-es2015": "^7.0.0-beta.53",
+        "@babel/preset-react": "^7.0.0",
+        "nodemon": "^1.18.4",
+        "webpack": "^4.21.0",
+        "webpack-dev-middleware": "^3.4.0",
+        "webpack-hot-middleware": "^2.24.3"
     }
 }
