@@ -28,3 +28,6 @@ For running client side, you need to run followin commands separately:
 npm install
 npm start
 ```
+
+- [ ] HMR configuration
+- [ ] Optimization (unglify, ...)
