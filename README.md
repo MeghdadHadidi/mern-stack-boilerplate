@@ -41,4 +41,5 @@ npm start
 
 -   [x] HMR configuration (Done - 100%)
 -   [ ] Webpack Hot Middleware and Webpack Dev Middleware configuration (In progress - 30%)
+-   [ ] Post Css ~~> RTL Css
 -   [ ] Optimization (unglify, ...)
