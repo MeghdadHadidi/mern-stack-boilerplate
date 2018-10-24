@@ -39,5 +39,6 @@ npm start
 
 ## Todo
 
--   [ ] HMR configuration (In progress - 60%)
+-   [x] HMR configuration (Done - 100%)
+-   [ ] Webpack Hot Middleware and Webpack Dev Middleware configuration (In progress - 30%)
 -   [ ] Optimization (unglify, ...)
