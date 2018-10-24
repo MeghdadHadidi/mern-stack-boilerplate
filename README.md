@@ -16,7 +16,8 @@ A completely flexible boilerplate for MERN stack (MongoDb, Express.js, React.js,
 ## Usage
 To start using this boilerplate, just start by cloning this repository:
 
-```git clone https://github.com/MeghdadHadidi/mern-stack-boilerplate.git 
+```
+git clone https://github.com/MeghdadHadidi/mern-stack-boilerplate.git 
 cd mern-stack-boilerplate
 npm install
 ```
@@ -24,7 +25,8 @@ npm install
 Then just simply run `npm run server` in main folder. 
 For running client side, you need to run followin commands separately:
 
-```cd client
+```
+cd client
 npm install
 npm start
 ```
