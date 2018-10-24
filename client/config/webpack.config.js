@@ -8,6 +8,7 @@ const autoprefixer = require("autoprefixer")
 const webpack = require("webpack")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
+const StyleLintPlugin = require("stylelint-webpack-plugin")
 const path = require("path")
 
 const here = p => path.join(__dirname, p)
@@ -17,11 +18,10 @@ const here = p => path.join(__dirname, p)
  ******************************/
 const entry = {
     main: [
-        "webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000",
+        // "webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000",
         "./src/index.js"
     ]
 }
-
 
 /*******************************
  * Output
@@ -52,7 +52,15 @@ const modules = {
             use: [
                 devMode ? "style-loader" : MiniCssExtractPlugin.loader,
                 "css-loader",
-                "postcss-loader",
+                {
+                    loader: "postcss-loader",
+                    options: {
+                        importLoaders: 1,
+                        config: {
+                            path: "./config/"
+                        }
+                    }
+                },
                 "sass-loader"
             ]
         }
@@ -70,6 +78,9 @@ const plugins = [
     new HtmlWebpackPlugin({
         template: "./src/index.html"
     }),
+    new StyleLintPlugin({
+        configFile: "./config/stylelint.config.js"
+    }),
     new webpack.HotModuleReplacementPlugin()
 ]
 
@@ -77,7 +88,6 @@ const plugins = [
  * Optimization
  ******************************/
 // @TODO:
-// - Configure HMR
 // - Optimization (Uglify, ...)
 
 /*******************************
