@@ -6,6 +6,7 @@ import "./stylesheets/main.scss"
 
 ReactDOM.render(<App />, document.getElementById("app"))
 
-if (module.hot && process.env.NODE_ENV === "development") {
+if (module.hot) {
+    console.log("hot is enabled")
     module.hot.accept()
 }
