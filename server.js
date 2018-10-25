@@ -18,30 +18,29 @@ import webpackConfig from "./client/config/webpack.config"
 import WebpackHotMiddleware from "webpack-hot-middleware"
 import WebpackDevMiddleware from "webpack-dev-middleware"
 
+webpackConfig.entry["server"] = "webpack/hot/dev-server"
+webpackConfig.entry["client"] = "webpack-hot-middleware/client"
+webpackConfig.output["path"] = "/"
 const compiler = webpack(webpackConfig)
 
-// @TODO:
-// Fix: Webpack Dev and Hot middlewares
+app.use(
+    WebpackDevMiddleware(compiler, {
+        hot: true,
+        publicPath: webpackConfig.output.publicPath,
+        stats: {
+            colors: true
+        },
+        historyApiFallback: true
+    })
+)
 
-// app.use(
-//     WebpackDevMiddleware(compiler, {
-//       hot: true,
-//       filename: "bundle.js",
-//       // publicPath: "/assets/",
-//       stats: {
-//         colors: true
-//       },
-//       historyApiFallback: true
-//     })
-//   );
+app.use(
+    WebpackHotMiddleware(compiler, {
+        log: console.log
+    })
+)
 
-//   app.use(
-//     WebpackHotMiddleware(compiler, {
-//       log: console.log,
-//       path: "/__webpack_hmr",
-//       heartbeat: 10 * 1000
-//     })
-//   );
+app.use(express.static("./client/src"))
 
 // Body Parser
 app.use(bodyParser.json())
