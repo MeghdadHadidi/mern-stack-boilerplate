@@ -4,9 +4,13 @@ import App from "./components/App"
 
 import "./stylesheets/main.scss"
 
-ReactDOM.render(<App />, document.getElementById("app"))
+const renderApp = () => {
+    ReactDOM.render(<App />, document.getElementById("app"))
+}
+
+renderApp()
 
 if (module.hot) {
-    console.log("hot is enabled")
+    console.log("hmr enableddddddd <~~~~~~~~~~~~~")
     module.hot.accept()
 }

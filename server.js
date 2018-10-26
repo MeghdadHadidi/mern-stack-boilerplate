@@ -30,6 +30,7 @@ app.use(
         stats: {
             colors: true
         },
+        noInfo: true,
         historyApiFallback: true
     })
 )

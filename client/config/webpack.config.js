@@ -110,7 +110,11 @@ module.exports = {
     mode: environment,
     entry,
     devServer: {
-        hot: true
+        port: 3000,
+        hot: true,
+        proxy: {
+            "/api": "http://localhost:5000"
+        }
     },
     devtool: "inline-cheap-module-source-map",
     output,
