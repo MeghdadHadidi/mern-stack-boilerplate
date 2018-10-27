@@ -1,0 +1,11 @@
+body {
+    background-color: #ccc;
+    text-align: center;
+    display: flex;
+    align-content: space-around;
+
+    #app {
+        flex: 1;
+        align-items: center;
+    }
+}

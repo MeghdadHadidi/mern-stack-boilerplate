@@ -13,35 +13,35 @@ import routes from "./routes"
 const app = express()
 
 // Webpack
-import webpack from "webpack"
-import webpackConfig from "./client/config/webpack.config"
-import WebpackHotMiddleware from "webpack-hot-middleware"
-import WebpackDevMiddleware from "webpack-dev-middleware"
+// import webpack from "webpack"
+// import webpackConfig from "./client/config/webpack.config"
+// import WebpackHotMiddleware from "webpack-hot-middleware"
+// import WebpackDevMiddleware from "webpack-dev-middleware"
 
-const compiler = webpack(webpackConfig)
-
-// @TODO:
-// Fix: Webpack Dev and Hot middlewares
+// webpackConfig.entry["server"] = "webpack/hot/dev-server"
+// webpackConfig.entry["client"] = "webpack-hot-middleware/client"
+// webpackConfig.output["path"] = "/"
+// const compiler = webpack(webpackConfig)
 
 // app.use(
 //     WebpackDevMiddleware(compiler, {
-//       hot: true,
-//       filename: "bundle.js",
-//       // publicPath: "/assets/",
-//       stats: {
-//         colors: true
-//       },
-//       historyApiFallback: true
+//         hot: true,
+//         publicPath: webpackConfig.output.publicPath,
+//         stats: {
+//             colors: true
+//         },
+//         noInfo: true,
+//         historyApiFallback: true
 //     })
-//   );
+// )
 
-//   app.use(
+// app.use(
 //     WebpackHotMiddleware(compiler, {
-//       log: console.log,
-//       path: "/__webpack_hmr",
-//       heartbeat: 10 * 1000
+//         log: console.log
 //     })
-//   );
+// )
+
+app.use(express.static("./client/src"))
 
 // Body Parser
 app.use(bodyParser.json())
