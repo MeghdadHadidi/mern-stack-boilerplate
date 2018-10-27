@@ -35,7 +35,7 @@ const entry = {
  * Output
  ******************************/
 const output = {
-    path: here("../src"),
+    path: here("../dist"),
     filename: "[name].bundle.js"
 }
 

@@ -13,33 +13,33 @@ import routes from "./routes"
 const app = express()
 
 // Webpack
-import webpack from "webpack"
-import webpackConfig from "./client/config/webpack.config"
-import WebpackHotMiddleware from "webpack-hot-middleware"
-import WebpackDevMiddleware from "webpack-dev-middleware"
+// import webpack from "webpack"
+// import webpackConfig from "./client/config/webpack.config"
+// import WebpackHotMiddleware from "webpack-hot-middleware"
+// import WebpackDevMiddleware from "webpack-dev-middleware"
 
-webpackConfig.entry["server"] = "webpack/hot/dev-server"
-webpackConfig.entry["client"] = "webpack-hot-middleware/client"
-webpackConfig.output["path"] = "/"
-const compiler = webpack(webpackConfig)
+// webpackConfig.entry["server"] = "webpack/hot/dev-server"
+// webpackConfig.entry["client"] = "webpack-hot-middleware/client"
+// webpackConfig.output["path"] = "/"
+// const compiler = webpack(webpackConfig)
 
-app.use(
-    WebpackDevMiddleware(compiler, {
-        hot: true,
-        publicPath: webpackConfig.output.publicPath,
-        stats: {
-            colors: true
-        },
-        noInfo: true,
-        historyApiFallback: true
-    })
-)
+// app.use(
+//     WebpackDevMiddleware(compiler, {
+//         hot: true,
+//         publicPath: webpackConfig.output.publicPath,
+//         stats: {
+//             colors: true
+//         },
+//         noInfo: true,
+//         historyApiFallback: true
+//     })
+// )
 
-app.use(
-    WebpackHotMiddleware(compiler, {
-        log: console.log
-    })
-)
+// app.use(
+//     WebpackHotMiddleware(compiler, {
+//         log: console.log
+//     })
+// )
 
 app.use(express.static("./client/src"))
 
