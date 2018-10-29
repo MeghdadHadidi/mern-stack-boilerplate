@@ -8,6 +8,6 @@ module.exports = {
             }
         ],
         "declaration-colon-space-after": "always",
-        "unit-whitelist": ["em", "rem", "%", "s"]
+        "unit-whitelist": ["em", "rem", "%", "s", "deg"]
     }
 }

@@ -4,8 +4,15 @@ body {
     display: flex;
     align-content: space-around;
 
+    :fullscreen{
+        background-color: red;
+    }
+
     #app {
+        border-radius: 4em;
         flex: 1;
         align-items: center;
+
+        transform: scale(1.1)
     }
 }

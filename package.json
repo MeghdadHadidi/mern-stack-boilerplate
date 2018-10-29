@@ -5,7 +5,8 @@
     "main": "server.js",
     "scripts": {
         "babel-node": "babel-node ./server.js",
-        "start": "concurrently \"npm run server\" \"cd client && npm start\"",
+        "start:dev": "concurrently \"npm run server\" \"cd client && SET \"NODE_ENV=development\"  && npm start\"",
+        "start:prod": "concurrently \"npm run server\" \"cd client && SET \"NODE_ENV=production\" && npm run build\"",
         "server": "nodemon --exec \"npm run babel-node\""
     },
     "repository": {
