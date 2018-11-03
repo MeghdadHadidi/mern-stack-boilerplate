@@ -1,15 +1,14 @@
 const globalConfig = require("./global.config")
 const rtl = require("postcss-rtl")
 
-module.exports = () => {
-    var config = {
-        plugins: [require("precss"), require("autoprefixer")]
-    }
-
-    if (globalConfig.autoRtlStyle) {
-        // config.plugins.
-        // Inja boodi
-    }
-
-    return config
+var postCssConfig = {
+    plugins: [require("precss"), require("autoprefixer")]
 }
+
+console.log(globalConfig.autoRtlStyle);
+
+if (globalConfig.autoRtlStyle) {
+    postCssConfig.plugins.unshift(rtl);
+}
+
+module.exports = postCssConfig
