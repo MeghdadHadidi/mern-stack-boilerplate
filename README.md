@@ -11,9 +11,10 @@ A completely flexible boilerplate for MERN stack (MongoDb, Express.js, React.js,
     -   Router
 -   Webpack (completely configured)
     -   HMR
-    -   Stylelint
-    -   Post Css
-        -   Pre Css
+    -   stylelint
+    -   postcss
+        -   precss
+        -   postcss-rtl
         -   autoprefixer
     -   Sass
 -   Node Js
@@ -39,7 +40,11 @@ npm start
 
 ## Todo
 
+-   [ ] Project structure
+-   [ ] Adding Redux
+-   [ ] Adding React Router
 -   [x] HMR configuration (Done - 100%)
--   [ ] Webpack Hot Middleware and Webpack Dev Middleware configuration (In progress - 30%)
--   [ ] Post Css ~~> RTL Css
--   [ ] Optimization (unglify, ...)
+-   [x] Webpack Hot Middleware and Webpack Dev Middleware configuration
+-   [x] Post Css ~~> RTL Css
+-   [x] Optimization (unglify, ...)
+
