@@ -1,0 +1,8 @@
+const types = {
+    APP_START_LOADING: 'APP_START_LOADING',
+    APP_LOADING: 'APP_LOADING',
+    APP_END_LOADING: 'APP_END_LOADING',
+    APP_LOADED: 'APP_LOADED'
+}
+
+export default types
