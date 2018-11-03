@@ -35,8 +35,19 @@ For running client side, you need to run followin commands separately:
 ```
 cd client
 npm install
-npm start
 ```
+
+Then return back to root folder (where the server and clients exist) like this:
+```
+cd ..
+```
+
+and then run:
+```
+npm run start:dev
+```
+
+Good Luck! 
 
 ## Todo
 
