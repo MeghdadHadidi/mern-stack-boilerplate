@@ -1,13 +1,13 @@
 /*******************************
  * Environment and Imports
  ******************************/
-const environment = process.env.NODE_ENV || "development"
-const devMode = environment === "development"
+var env = process.env.NODE_ENV.trim()
+var devMode = env != "production"
 
-const autoprefixer = require("autoprefixer")
 const webpack = require("webpack")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin")
 const StyleLintPlugin = require("stylelint-webpack-plugin")
 const path = require("path")
 
@@ -19,17 +19,6 @@ const here = p => path.join(__dirname, p)
 const entry = {
     main: [here("../src/index.js")]
 }
-
-// Adding HMR entry only if devmode is enabled
-// if (devMode) {
-//     Object.keys(entry).forEach(x => {
-//         if (typeof entry[x] === "string") {
-//             entry[x] = [entry[x]]
-//         }
-
-//         entry[x].push("webpack-hot-middleware/client")
-//     })
-// }
 
 /*******************************
  * Output
@@ -63,9 +52,8 @@ const modules = {
                 {
                     loader: "postcss-loader",
                     options: {
-                        importLoaders: 1,
                         config: {
-                            path: "./config/"
+                            path: here("./")
                         }
                     }
                 },
@@ -74,6 +62,8 @@ const modules = {
         }
     ]
 }
+
+console.log(modules.rules[1].use[0])
 
 /*******************************
  * Plugins
@@ -99,15 +89,25 @@ if (devMode) {
 /*******************************
  * Optimization
  ******************************/
-// @TODO:
-// - Post Css ~~> RTL Css
-// - Optimization (Uglify, ...)
+const optimization = {
+    minimizer: [
+        new UglifyJsPlugin({
+            sourceMap: true,
+            parallel: 4,
+            cache: true,
+            extractComments: true,
+            uglifyOptions: {
+                comments: /@preserve/i
+            }
+        })
+    ]
+}
 
 /*******************************
  * Exporting configuration
  ******************************/
-module.exports = {
-    mode: environment,
+var configObject = {
+    mode: env,
     entry,
     devServer: {
         port: 3000,
@@ -116,6 +116,7 @@ module.exports = {
             "/api": "http://localhost:5000"
         }
     },
+    optimization,
     devtool: "inline-cheap-module-source-map",
     output,
     resolveLoader: {
@@ -124,4 +125,9 @@ module.exports = {
     },
     module: modules,
     plugins
+}
+
+module.exports = (env, argv) => {
+    configObject.mode = argv.mode
+    return configObject
 }
