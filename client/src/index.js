@@ -1,20 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
+import Routes from "./Routes";
 
 // Store
 import configureStore from "./store";
 const store = configureStore();
-
-// Components
-import App from "./components/App";
 
 // Styles
 import "./stylesheets/main.scss";
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Routes />
   </Provider>,
   document.getElementById("app")
 );

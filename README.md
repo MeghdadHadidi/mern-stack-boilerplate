@@ -4,20 +4,20 @@ A completely flexible boilerplate for MERN stack (MongoDb, Express.js, React.js,
 
 ## Stack List
 
--   MongoDB
--   Express
--   React
-    -   Redux
-    -   Router
--   Webpack (completely configured)
-    -   HMR
-    -   stylelint
-    -   postcss
-        -   precss
-        -   postcss-rtl
-        -   autoprefixer
-    -   Sass
--   Node Js
+- MongoDB
+- Express
+- React
+  - Redux
+  - Router
+- Webpack (completely configured)
+  - HMR
+  - stylelint
+  - postcss
+    - precss
+    - postcss-rtl
+    - autoprefixer
+  - Sass
+- Node Js
 
 ## Usage
 
@@ -38,24 +38,25 @@ npm install
 ```
 
 Then return back to root folder (where the server and clients exist) like this:
+
 ```
 cd ..
 ```
 
 and then run:
+
 ```
 npm run start:dev
 ```
 
-Good Luck! 
+Good Luck!
 
 ## Todo
 
--   [ ] Project structure
--   [ ] Adding Redux
--   [ ] Adding React Router
--   [x] HMR configuration (Done - 100%)
--   [x] Webpack Hot Middleware and Webpack Dev Middleware configuration
--   [x] Post Css ~~> RTL Css
--   [x] Optimization (unglify, ...)
-
+- [ ] Project structure
+- [ ] Adding React Router
+- [x] Adding Redux
+- [x] HMR configuration
+- [x] Webpack Hot Middleware and Webpack Dev Middleware configuration
+- [x] Post Css ~~> RTL Css
+- [x] Optimization (unglify, ...)
