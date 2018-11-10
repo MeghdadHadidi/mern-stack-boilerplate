@@ -1,17 +1,24 @@
-import React from "react"
-import ReactDOM from "react-dom"
-import { hot } from "react-hot-loader"
-import App from "./components/App"
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
 
-import "./stylesheets/main.scss"
+// Store
+import configureStore from "./store";
+const store = configureStore();
 
-const renderApp = () => {
-    ReactDOM.render(<App />, document.getElementById("app"))
-}
+// Components
+import App from "./components/App";
 
-renderApp()
+// Styles
+import "./stylesheets/main.scss";
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById("app")
+);
 
 if (module.hot && process.env.NODE_ENV === "development") {
-    console.log("hmr enableddddddd <~~~~~~~~~~~~~")
-    module.hot.accept()
+  module.hot.accept();
 }

@@ -1,8 +1,3 @@
-const types = {
-    APP_START_LOADING: 'APP_START_LOADING',
-    APP_LOADING: 'APP_LOADING',
-    APP_END_LOADING: 'APP_END_LOADING',
-    APP_LOADED: 'APP_LOADED'
-}
-
-export default types
+export const APP_LOADING = "APP_LOADING";
+export const APP_OFFLINE = "APP_OFFLINE";
+export const APP_ONLINE = "APP_ONLINE";

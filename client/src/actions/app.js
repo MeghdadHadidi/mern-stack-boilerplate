@@ -1,5 +1,21 @@
-import types from '../types'
+import {
+  generateEndtType,
+  generateErrorType,
+  generateStartType,
+  generateSuccessType
+} from "../utils";
 
-export const app = () => ({
-    type: types.APP_START_LOADING
-})
+import { APP_LOADING } from "../types";
+
+export const appLoadingStart = () => ({
+  type: generateStartType(APP_LOADING)
+});
+
+export const appLoadingEnd = () => ({
+  type: generateEndtType(APP_LOADING)
+});
+
+export const appLoadingError = () => ({
+  type: generateErrorType(APP_LOADING),
+  payload: "Error occured while loading app"
+});
